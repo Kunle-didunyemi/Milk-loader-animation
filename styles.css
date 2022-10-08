@@ -32,14 +32,18 @@ body {
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.25);
+  filter: url(#Gooey);
 }
 .loader span {
   position: absolute;
+  left: 0;
+  transform-origin: 150px;
   width: 100px;
   height: 100px;
   background: #fff;
   border-radius: 50%;
   animation: animate 5s ease-in-out infinite;
+  animation-delay: calc(0.15s * var(--i));
 }
 @keyframes animate {
   0%,
@@ -52,7 +56,8 @@ body {
   70% {
     width: 40px;
     height: 40px;
-    transform: rotate(calc(360deg / 8 * var(--i))) translateX(120px);
+    transform: rotate(calc(360deg / 8 * var(--i)));
+    box-shadow: 0 0 0 10px #fff;
   }
   90%,
   100% {
@@ -60,4 +65,8 @@ body {
     height: 100px;
     transform: rotate(0deg) translateX(120px);
   }
+}
+svg{
+    width: 0;
+    height: 0;
 }
